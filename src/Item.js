@@ -26,10 +26,7 @@ SimpleSchema.extendOptions(['uniforms']);
 const style = {
   cursor: 'move',
 };
-/*paddingTop: '20px',
-  paddingBottom: '20px',
-  paddingRight: '10px',
-  paddingLeft: '10px'*/
+
 const itemSource = {
   beginDrag(props) {
     return {

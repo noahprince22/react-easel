@@ -44,7 +44,7 @@ const styles = {
     padding: 0,
     flexGrow: 0,     /* do not grow   - initial value: 0 */
     flexShrink: 0,   /* do not shrink - initial value: 1 */
-    flexBasis: '175px',
+    flexBasis: '225px',
     borderRadius: '5px',
   },
   firstItem: {
