@@ -44,8 +44,9 @@ const styles = {
     flexGrow: 0,
     flexShrink: 0,
     flexBasis: '20px',
+    marginRight: '5px'
   },
-  iconInner: {
+  verticalCenter: {
     position: 'relative',
     top: '50%',
     transform: 'translateY(-50%)',
@@ -71,12 +72,14 @@ export default class FormComponent extends Component {
     return connectDragSource(
       <div onClick={() => create(this.props)} style={{ ...styles.parent, opacity }}>
         <div style={styles.icon}>
-          <div style={styles.iconInner}>
+          <div style={{ textAlign: 'center', ...styles.verticalCenter }}>
             {icon}
           </div>
         </div>
         <div style={styles.text}>
-          {text}
+          <div style={styles.verticalCenter}>
+            {text}
+          </div>
         </div>
       </div>
     )

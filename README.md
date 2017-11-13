@@ -29,7 +29,7 @@ First, ensure you have loaded bootstrap4 css. This library can be used with comp
 import FormBuidler, { defaults } from 'react-uniform-builder';
 
 const MyFormBuilder = () => (
-  <FormBuilder {...defaults.bootstrap4} />
+  <FormBuilder onSchemaChange={console.log} {...defaults.bootstrap4} />
 )
 ```
 
