@@ -1417,6 +1417,10 @@ colormin@^1.0.5:
     css-color-names "0.0.4"
     has "^1.0.1"
 
+colors@~0.6.0-1:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/colors/-/colors-0.6.2.tgz#2423fe6678ac0c5dae8852e5d0e5be08c997abcc"
+
 colors@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
@@ -3374,6 +3378,13 @@ normalize-url@^1.4.0:
     prepend-http "^1.0.0"
     query-string "^4.1.0"
     sort-keys "^1.0.0"
+
+npm-release@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/npm-release/-/npm-release-1.0.0.tgz#797511bc80c43d171d1b66e4da677050220af208"
+  dependencies:
+    colors "~0.6.0-1"
+    optimist "~0.6.0"
 
 npmlog@^4.0.1:
   version "4.0.2"

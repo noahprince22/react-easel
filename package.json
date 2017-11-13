@@ -4,7 +4,9 @@
   "description": "Build forms using simple-schema and uniforms",
   "main": "lib/react-formbuilder.js",
   "scripts": {
-    "release": "git tag -a v$1 -m \"Version $1\" && git push --tags && npm run publish",
+    "release:patch": "npm-release patch",
+    "release:minor": "npm-release minor",
+    "release:major": "npm-release major",
     "start": "node server.js",
     "build": "cross-env BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.production.js",
     "prepublish": "npm run build",
@@ -58,6 +60,7 @@
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^6.8.0",
+    "npm-release": "^1.0.0",
     "react-json-view": "^1.13.3",
     "react-throttle": "^0.3.0",
     "react-transform-hmr": "^1.0.4",
