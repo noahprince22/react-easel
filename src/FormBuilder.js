@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
-import update from 'immutability-helper'
-import { DropTarget, DragDropContext } from 'react-dnd'
-import HTML5Backend from 'react-dnd-html5-backend'
-import Item from './Item'
-import ItemTypes from './ItemTypes'
+import React, { Component } from 'react';
+import update from 'immutability-helper';
+import { DropTarget, DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import Item from './Item';
+import ItemTypes from './ItemTypes';
 import FormComponent from './FormComponent';
-import 'font-awesome/css/font-awesome.css';
 import SimpleSchema from 'simpl-schema';
+import 'font-awesome/css/font-awesome.css';
+import './FormBuilder.css';
 
 SimpleSchema.extendOptions(['uniforms']);
-
-import './FormBuilder.css';
 
 const styles = {
   emptyStateWrapper: {
@@ -204,7 +203,7 @@ export default class FormBuilder extends Component {
     const leftContainer = connectComponentDropTarget(
       connectItemDropTarget(
         <div style={styles.leftWrapper}>
-          <Form schema={this.getSchema()} model={{}} onSubmit={(form) =>{ debugger}}>
+          <Form schema={this.getSchema()} model={{}}>
             { cards.length === 0 &&
               <div style={styles.emptyStateWrapper}>
                 <span style={styles.emptyState}>Drag a field from the right to this area</span>
