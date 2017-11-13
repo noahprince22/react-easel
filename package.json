@@ -1,5 +1,5 @@
 {
-  "name": "react-formbuilder",
+  "name": "react-uniform-builder",
   "version": "0.0.4",
   "description": "Build forms using simple-schema and uniforms",
   "main": "lib/react-formbuilder.js",
