@@ -2640,6 +2640,12 @@ ignore@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.2.0.tgz#8d88f03c3002a0ac52114db25d2c673b0bf1e435"
 
+immutability-helper@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/immutability-helper/-/immutability-helper-2.5.0.tgz#01ea7204334997c645bdfa7eb22e8b84c970946e"
+  dependencies:
+    invariant "^2.2.0"
+
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
@@ -4036,6 +4042,12 @@ react-beautiful-dnd@^2.5.0:
 react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
+
+react-dnd-html5-backend@^2.5.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/react-dnd-html5-backend/-/react-dnd-html5-backend-2.5.4.tgz#974ad083f67b12d56977a5b171f5ffeb29d78352"
+  dependencies:
+    lodash "^4.2.0"
 
 react-dnd@^2.5.4:
   version "2.5.4"
