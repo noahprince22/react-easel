@@ -1,0 +1,64 @@
+{
+  "name": "react-formbuilder",
+  "version": "0.0.1",
+  "description": "Build forms using simple-schema and uniforms",
+  "main": "lib/react-formbuilder.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "cross-env BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.production.js",
+    "prepublish": "npm run build",
+    "lint": "eslint --cache --ignore-path .gitignore --format=node_modules/eslint-formatter-pretty . *.js",
+    "test": "npm run lint"
+  },
+  "keywords": [
+    "react",
+    "forms",
+    "formBuilder",
+    "Form Builder",
+    "uniforms",
+    "simple-schema"
+  ],
+  "author": "Noah Prince",
+  "license": "MIT",
+  "homepage": "https://github.com/noahprince22/react-formbuilder",
+  "dependencies": {
+    "babel-runtime": "^6.20.0",
+    "font-awesome": "^4.7.0",
+    "fontawesome": "^4.7.2",
+    "react-beautiful-dnd": "^2.5.0",
+    "react-dnd": "^2.5.4",
+    "simpl-schema": "^0.4.1",
+    "uniforms": "^1.22.1",
+    "uniforms-bootstrap4": "^1.22.1"
+  },
+  "peerDependencies": {
+    "react": "^15.0",
+    "react-dom": "^15.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "^0.28.7",
+    "cross-env": "^3.1.3",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-formatter-pretty": "^1.1.0",
+    "eslint-plugin-compat": "^0.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^6.8.0",
+    "react-json-view": "^1.13.3",
+    "react-throttle": "^0.3.0",
+    "react-transform-hmr": "^1.0.4",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

@@ -1,0 +1,97 @@
+@import '~font-awesome/css/font-awesome.css';
+
+.item:hover {
+  background-color: #f2f2f2 !important;
+}
+
+.element:first-child {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.element:hover, .element.dragging {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.element.dragging .form-element {
+  opacity: 0
+}
+
+.element {
+  position: relative;
+  padding: 6px;
+  clear: both;
+  margin-left: 0;
+  margin-bottom: 3px;
+  background-color: #fff;
+  transition: background-color .25s ease-in-out, margin-top .4s;
+  min-height: 75px;
+}
+
+.field-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display:none;
+  z-index: 1000;
+}
+
+.element:hover .field-actions {
+  display: block;
+}
+
+.field-actions .btn {
+  cursor: pointer;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  padding: 0 6px;
+  border-radius: 0;
+  border-color: #c5c5c5;
+  background-color: #fff;
+  color: #c5c5c5;
+  line-height: 32px;
+  font-size: 16px;
+  border-width: 0 0 1px 1px;
+}
+
+.field-actions .btn:first-child {
+  border-bottom-left-radius: 5px;
+}
+
+.element:first-of-type .field-actions .btn:last-child {
+  border-radius: 0 5px 0 0;
+}
+
+.field-actions .copy-button:hover {
+  background-color: #6fc665;
+  color: #fff;
+}
+
+.field-actions .toggle-form:hover {
+  background-color: #65aac6;
+  color: #fff;
+}
+
+.field-actions .del-button:hover {
+  background-color: #c66865;
+  color: #fff;
+}
+
+.form-elements {
+  padding: 10px 5px;
+  background: #f7f7f7;
+  border-radius: 3px;
+  margin: 0;
+  border: 1px solid #c5c5c5;
+}
+
+.form-control-danger {
+  border: 1px solid red;
+}
+
+.card .form-group {
+  margin-left: 15px;
+}
