@@ -1,6 +1,6 @@
 # React Uniform Builder
 
-A react component to build reusable forms. [See the demo here]()
+A react component to dynamically build reusable forms. [See the demo here]()
 
 ### Acknowledgements
 
