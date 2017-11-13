@@ -125,7 +125,7 @@ export default class FormBuilder extends Component {
       cards
     });
 
-    this.props.onSchemaChange(cards);
+    this.props.onSchemaChange(this.getSchemaJson(cards));
   }
 
   getCards(props) {
