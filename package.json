@@ -1,6 +1,6 @@
 {
   "name": "react-uniform-builder",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Widget to dynamically build forms using simple-schema and uniforms",
   "main": "lib/react-formbuilder.js",
   "scripts": {
