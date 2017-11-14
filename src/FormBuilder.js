@@ -130,12 +130,15 @@ export default class FormBuilder extends Component {
   }
 
   getCards(props) {
+    let id = 0;
     if (props.cards) {
-      return props.cards;
+      return props.cards.map(c => ({
+        id: (++id),
+        ...c
+      }));
     }
 
     // Filter out array object (ends in .$)
-    let id = 0;
     return Object.keys(props.schema).filter(k => !k.match(/\.\$$/)).map(name => ({
       ...props.schema[name],
       name,
