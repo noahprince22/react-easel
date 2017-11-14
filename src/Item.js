@@ -5,22 +5,6 @@ import SimpleSchema from 'simpl-schema';
 import ErrorField from './ErrorField';
 import AutoFields from './AutoFields';
 
-//const ErrorField = (props, { uniforms: { error, submissionError } }) => {
-//  const err = submissionError || error;
-//  if (err) {
-//    const message = err.message ? err.message : err;
-//    return <div className="alert alert-danger flash-error" role="alert">
-//      <div key={message}><strong>Error!</strong> {message}</div>
-//    </div>;
-//  }
-//
-//  return <div />
-//};
-//
-//ErrorField.contextTypes = BaseField.contextTypes;
-//
-//export default ErrorField;
-
 SimpleSchema.extendOptions(['uniforms']);
 
 const style = {
@@ -118,11 +102,11 @@ export default class Item extends Component {
       optional: {
         type: Boolean,
         optional: true,
-        defaultValue: true,
         uniforms: {
           label: 'Allow Blank?'
         }
       },
+      name: String,
       label: String,
       help: {
         type: String,
@@ -135,7 +119,6 @@ export default class Item extends Component {
         type: String,
         optional: true
       },
-      name: String,
       value: {
         type: String,
         optional: true

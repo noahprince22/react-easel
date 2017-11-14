@@ -89,21 +89,7 @@ export default class FormBuilder extends Component {
     schema: {}
   };
 
-  constructor(props) {
-    super(props);
-    this.moveItem = this.moveItem.bind(this);
-    this.setItem = this.setItem.bind(this);
-    this.removeItem = this.removeItem.bind(this);
-    this.findItem = this.findItem.bind(this);
-    this.createItem = this.createItem.bind(this);
-    this.getSchemaJson = this.getSchemaJson.bind(this);
-
-    this.state = {
-      cards: this.getCards(props)
-    }
-  }
-
-  getSchemaJson(cards = this.state.cards) {
+  static getSchemaJson(cards) {
     return cards.reduce((s, card) => {
       const { id, preview, name, ...other } = card;
       s[name] = other;
@@ -112,7 +98,8 @@ export default class FormBuilder extends Component {
         s[name].blackbox = true;
         s[name + '.$'] = {
           type: Object,
-          blackbox: true
+          blackbox: true,
+          uniforms: other.uniforms
         }
       }
 
@@ -120,21 +107,39 @@ export default class FormBuilder extends Component {
     }, {});
   }
 
+  constructor(props) {
+    super(props);
+    this.moveItem = this.moveItem.bind(this);
+    this.setItem = this.setItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
+    this.findItem = this.findItem.bind(this);
+    this.createItem = this.createItem.bind(this);
+
+    this.state = {
+      cards: this.getCards(props)
+    }
+  }
+
   updateCards(cards) {
     this.setState({
       cards
     });
 
-    this.props.onSchemaChange(this.getSchemaJson(cards));
+    this.props.onSchemaChange && this.props.onSchemaChange(this.constructor.getSchemaJson(cards));
+    this.props.onCardChange && this.props.onCardChange(cards);
   }
 
   getCards(props) {
+    if (props.cards) {
+      return props.cards;
+    }
+
     // Filter out array object (ends in .$)
     let id = 0;
     return Object.keys(props.schema).filter(k => !k.match(/\.\$$/)).map(name => ({
+      ...props.schema[name],
       name,
-      id: ++id,
-      ...props.schema[name]
+      id: (++id)
     }))
   }
 
@@ -191,7 +196,7 @@ export default class FormBuilder extends Component {
   }
 
   getSchema() {
-    return new SimpleSchema(this.getSchemaJson(this.state.cards));
+    return new SimpleSchema(this.constructor.getSchemaJson(this.state.cards));
   }
 
   render() {

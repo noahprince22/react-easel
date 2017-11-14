@@ -51,7 +51,6 @@ const components = [{
       },
       type: {
         type: String,
-        defaultValue: 'date',
         allowedValues: ['date', 'datetime-local']
       }
     })
@@ -73,11 +72,13 @@ const components = [{
     text: 'Textarea'
   },
   formElement: LongTextField,
+  defaultProps: {
+    rows: 10
+  },
   admin: {
     schema: new SimpleSchema({
       rows: {
-        type: Number,
-        defaultValue: 10
+        type: Number
       },
     })
   }
@@ -148,6 +149,7 @@ const components = [{
   },
   formElement: SelectField,
   defaultProps: {
+    value: 1,
     options: [{ label: 'one', value: 1 }]
   },
   admin: {

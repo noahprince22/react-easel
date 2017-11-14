@@ -7,6 +7,7 @@ const create = (props, preview = false) => {
   const item = props.createItem({
     name: props.formComponent.sidebar.text + parseInt(Math.random() * 10000, 10),
     type: props.formComponent.dataType,
+    optional: true,
     uniforms: {
       componentType: props.formComponent.type,
       label: props.formComponent.sidebar.text,

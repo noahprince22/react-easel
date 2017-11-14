@@ -25,6 +25,18 @@ module.exports = {
       commonjs: ['react-dom'],
       amd: 'react-dom'
     },
+    uniforms: {
+      root: 'uniforms',
+      commonjs2: 'uniforms',
+      commonjs: ['uniforms'],
+      amd: 'uniforms'
+    },
+    'uniforms-bootstrap4': {
+      root: 'uniforms-bootstrap4',
+      commonjs2: 'uniforms-bootstrap4',
+      commonjs: ['uniforms-bootstrap4'],
+      amd: 'uniforms-bootstrap4'
+    }
   }],
   resolve: {
     extensions: ['.js']

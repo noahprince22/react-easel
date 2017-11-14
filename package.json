@@ -33,13 +33,13 @@
     "react-beautiful-dnd": "^2.5.0",
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
-    "simpl-schema": "^0.4.1",
-    "uniforms": "^1.22.1",
-    "uniforms-bootstrap4": "^1.22.1"
+    "simpl-schema": "^0.4.1"
   },
   "peerDependencies": {
     "react": "^15.0",
-    "react-dom": "^15.0"
+    "react-dom": "^15.0",
+    "uniforms-bootstrap4": "^1.22.1",
+    "uniforms": "^1.22.1"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",

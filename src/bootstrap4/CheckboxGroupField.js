@@ -1,42 +1,18 @@
 import React        from 'react';
 import classnames   from 'classnames';
 import connectField from 'uniforms/connectField';
-
+import update from 'immutability-helper';
 import wrapField from 'uniforms-bootstrap4/wrapField';
 
 class CheckboxGroupField extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: this.getChecked(props)
-    };
-
-    this.onCheck = this.onCheck.bind(this)
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({
-      checked: this.getChecked(props)
-    })
-  }
-
-  getChecked(props) {
-    return props.checked ? props.checked.reduce((obj, checkedV) => {
-      obj[checkedV] = true;
-      return obj;
-    }, {}) : {}
-  }
-
   onCheck(v) {
-    this.setState({
-      checked: {
-        ...this.state.checked,
-        [v]: !this.state.checked[v]
-      }
-    }, () => {
-      const checkedValues = Object.keys(this.state.checked).filter(v => this.state.checked[v]);
-      this.props.onChange(checkedValues);
-    });
+    const index = this.props.value.indexOf(v);
+    if (index >= 0) {
+      this.props.onChange(update(this.props.value, { $splice: [[index, 1]] }));
+    }
+    else {
+      this.props.onChange(update(this.props.value, { $push: [v] }));
+    }
   }
 
   render() {
@@ -53,7 +29,7 @@ class CheckboxGroupField extends React.Component {
         >
           <label htmlFor={`${props.id}-${item}`} className="form-check-label">
             <input
-              checked={this.state.checked[item.value]}
+              checked={props.value.includes(item.value)}
               className="form-check-input"
               disabled={props.disabled}
               id={`${props.id}-${item}`}

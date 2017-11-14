@@ -23,11 +23,11 @@ const Date_ = props =>
       max={dateFormat(props.max)}
       min={dateFormat(props.min)}
       name={props.name}
-      onChange={event => dateParse(event.target.valueAsNumber, props.onChange)}
+      onChange={event => props.onChange(event.target.value)}
       placeholder={props.placeholder}
       ref={props.inputRef}
       type={props.type}
-      value={dateFormat(props.value)}
+      value={props.value}
     />
   ))
 ;
