@@ -46,26 +46,6 @@ const styles = {
     flexShrink: 0,   /* do not shrink - initial value: 1 */
     flexBasis: '225px',
     borderRadius: '5px',
-  },
-  firstItem: {
-    borderRadius: '5px 5px 0 0',
-    marginTop: 0
-  },
-  lastItem: {
-    borderRadius: '0 0 5px 5px',
-  },
-  item: {
-    cursor: 'move',
-    listStyle: 'none',
-    margin: '0 0 -1px',
-    padding: '10px',
-    textAlign: 'left',
-    background: '#fff',
-    userSelect: 'none',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    overflow: 'hidden',
-    boxShadow: 'inset 0 0 0 1px #c5c5c5'
   }
 };
 
@@ -244,25 +224,16 @@ export default class FormBuilder extends Component {
     );
 
     const rightContainer = <div>
-      {formComponents.map((formComponent, index) => {
-        let style = styles.item;
-        if (index === 0) {
-          style = { ...styles.firstItem, ...style }
-        }
-        if (index === formComponents.length - 1) {
-          style = { ...styles.lastItem, ...style }
-        }
-        return (
-          <div key={index} className="item" style={style}>
-            <FormComponent
-              formComponent={formComponent}
-              createItem={this.createItem}
-              setItem={this.setItem}
-              removeItem={this.removeItem}
-            />
-          </div>
+      {formComponents.map((formComponent, index) => (
+          <FormComponent
+            key={formComponent.type}
+            formComponent={formComponent}
+            createItem={this.createItem}
+            setItem={this.setItem}
+            removeItem={this.removeItem}
+          />
         )
-      })}
+      )}
     </div>;
 
     return <div style={styles.parent}>

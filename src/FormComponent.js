@@ -39,7 +39,18 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'stretch',
     alignContent: 'stretch',
-    width: '100%'
+    width: '100%',
+    cursor: 'move',
+    listStyle: 'none',
+    margin: '0 0 -1px',
+    padding: '10px',
+    textAlign: 'left',
+    background: '#fff',
+    userSelect: 'none',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    boxShadow: 'inset 0 0 0 1px #c5c5c5'
   },
   icon: {
     flexGrow: 0,
@@ -66,12 +77,13 @@ export default class FormComponent extends Component {
     const {
             isDragging,
             connectDragSource,
-            formComponent: { sidebar: { icon, text } }
+            formComponent: { sidebar: { icon, text } },
+            style
           } = this.props;
     const opacity = isDragging ? 0.5 : 1;
 
     return connectDragSource(
-      <div onClick={() => create(this.props)} style={{ ...styles.parent, opacity }}>
+      <div className="item" onClick={() => create(this.props)} style={{ ...style, ...styles.parent, opacity }}>
         <div style={styles.icon}>
           <div style={{ textAlign: 'center', ...styles.verticalCenter }}>
             {icon}

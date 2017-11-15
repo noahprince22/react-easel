@@ -4,6 +4,15 @@
   background-color: #f2f2f2 !important;
 }
 
+.item:last-of-type {
+  border-radius: 0 0 5px 5px
+}
+
+.item:first-of-type {
+  border-radius: 5px 5px 0 0;
+  marginTop: 0;
+}
+
 .element:first-child {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
