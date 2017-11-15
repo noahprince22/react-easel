@@ -1,16 +1,17 @@
 # React Uniform Builder
 
-A react component to dynamically build reusable forms. [See the demo here]()
+A react component to dynamically build reusable forms. [See the demo here](https://noahprince22.github.io/react-easel/public/)
 
-### Acknowledgements
+## Acknowledgements
 
-React Uniform Builder is built on top of [uniforms](https://github.com/vazco/uniforms) and [simple-schema](https://github.com/aldeed/node-simple-schema) with styling inspiration from [formBuilder](git@github.com:kevinchappell/formBuilder.git)
+React Uniform Builder is built on top of [uniforms](https://github.com/vazco/uniforms) and [simple-schema](https://github.com/aldeed/node-simple-schema) with styling inspiration from 
+[formBuilder](git@github.com:kevinchappell/formBuilder.git)
 
 This project is maintained by [Amdirent, Inc.](https://amdirent.com) If you'd like to build forms that hook up to arbitrary processes, and a dynamically created database table, check out [Amdirent Opslab](opslab.amdirent.com)
 
-### Usage
+# Usage
 
-#### Installing
+## Installing
 
 ````
 npm install --save react-easel
@@ -20,7 +21,7 @@ or
 yarn add react-easel
 ````
 
-#### Quick Start
+## Quick Start
 
 First, ensure you have loaded bootstrap4 css. This library can be used with custom components and custom styling, but defaults exist for bootstrap.
 
@@ -50,7 +51,7 @@ const jsonSchemaDef = <your json definition of a SimpleSchema>
 
 *Note:* `onSchemaChange` exists to get data out. It should not be used to drive `Easel` like a normal controlled component. `Easel` will populate initial values with `props.schema`, but it does not update on `componentWillReceiveProps`. This is because the process of creating `Easel`'s interanal state from a schema is slow, but `onSchemaChange` is called every time a component is rearanged. Using this like a normal controlled component leads to a laggy drag and drop experience.
   
-#### Defining Your Own Components/Inputs
+## Defining Your Own Components/Inputs
 
 Defaults exist for bootstrap4. You can see those in `src/bootstrap4/defaults`
 
@@ -64,7 +65,7 @@ The easel component expects five props:
 | `onSchemaChange` | A callback function that will receive a json representation of the SimpleSchema when the component changes. This SimpleSchema can be used to render future forms.  
 | `schema` | (optional) A json representation of an existing SimpleSchema to render. 
 
-##### Component Definiton
+### Component Definiton
 
 Components are defined as follows:
 
@@ -78,7 +79,7 @@ Components are defined as follows:
 | `admin` | `object` | Definition of any additional configuration the field has. Defaults include `name`, `placeholder`, `label`, `optional`, and `value`|
 | `admin.schema` | `SimpleSchema` | A Simple Schema definition to render configuration fields for this Component. Whatever is filled into these fields will be passed as a prop to the component |  
 
-##### Example: Using react-select instead of a regular select
+#### Example: Using react-select instead of a regular select
 
 First, make a uniforms driven react-select component:
 
@@ -116,7 +117,7 @@ myDefaults.components = defaults.bootstrap4.map(component => {
 <Easel onSchemaChange={console.log} {...myDefaults} />
 ```
 
-##### Example: Adding a WYSIWYG editor
+#### Example: Adding a WYSIWYG editor
 
 For this example, we're going to use `Trumbowyg`.
 
@@ -203,7 +204,7 @@ const WYSIWYGComponent = {
 />
 ```
 
-###### Example: Text Area with admin configuration.
+#### Example: Text Area with admin configuration.
 
 Uniforms-bootstrap4 gives us a LongTextField, and that LongTextField can take `rows` as a prop. We'd like to show that in the admin section of the field in Easel.
 
