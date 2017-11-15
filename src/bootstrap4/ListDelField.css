@@ -1,0 +1,19 @@
+.delete-item {
+  color: pink;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  flex-shrink:1;
+}
+
+.delete-item:hover {
+  color: red;
+}
+
+.del-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 42px;
+}

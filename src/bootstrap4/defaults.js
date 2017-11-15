@@ -6,7 +6,8 @@ import SelectField from 'uniforms-bootstrap4/SelectField';
 import NumberField from 'uniforms-bootstrap4/NumField';
 import RadioGroup from 'uniforms-bootstrap4/RadioField';
 import CheckboxGroup from './CheckboxGroupField';
-import ListField from 'uniforms-bootstrap4/ListField';
+import BaseField from 'uniforms/BaseField';
+import ListField from './ListField';
 import HiddenField from 'uniforms-bootstrap4/HiddenField';
 import BooleanField from 'uniforms-bootstrap4/BoolField';
 import DateField from './DateField';
@@ -123,7 +124,7 @@ const components = [{
         type: Array,
         minCount: 1,
         uniforms: {
-          label: 'Exit States',
+          label: 'Options',
           removeIcon: <i className="fa fa-minus" style={{ position: 'relative', top: '-15px', left: '17px'}}/> ,
           addIcon: <i className="pull-right fa fa-plus" style={{ position: 'relative', top: '-15px', right: '17px'}}/>,
           component: ListField,
@@ -150,7 +151,7 @@ const components = [{
   formElement: SelectField,
   defaultProps: {
     value: 1,
-    options: [{ label: 'one', value: 1 }]
+    options: [{ label: 'one', value: '1' }]
   },
   admin: {
     schema: new SimpleSchema({
@@ -158,7 +159,7 @@ const components = [{
         type: Array,
         minCount: 1,
         uniforms: {
-          label: 'Exit States',
+          label: 'Options',
           removeIcon: <i className="fa fa-minus" style={{ position: 'relative', top: '-15px', left: '17px'}}/> ,
           addIcon: <i className="pull-right fa fa-plus" style={{ position: 'relative', top: '-15px', right: '17px'}}/>,
           component: ListField,
@@ -168,10 +169,16 @@ const components = [{
         type: Object
       },
       'options.$.label': {
-        type: String
+        type: String,
+        uniforms: {
+          placeholder: 'Label'
+        }
       },
       'options.$.value': {
-        type: String
+        type: String,
+        uniforms: {
+          placeholder: 'Value'
+        }
       }
     })
   }
@@ -192,7 +199,7 @@ const components = [{
         type: Array,
         minCount: 1,
         uniforms: {
-          label: 'Exit States',
+          label: 'Options',
           removeIcon: <i className="fa fa-minus" style={{ position: 'relative', top: '-15px', left: '17px'}}/> ,
           addIcon: <i className="pull-right fa fa-plus" style={{ position: 'relative', top: '-15px', right: '17px'}}/>,
           component: ListField,
@@ -211,14 +218,22 @@ const components = [{
   }
 }];
 
-const CustomAuto = props => {
-  const builderComponent = components.find(c => c.type === props.componentType);
-  const Component =  builderComponent ? builderComponent.formElement : AutoField;
+class CustomAuto extends BaseField {
+  getChildContextName() {
+    return this.context.uniforms.name;
+  }
 
-  return (
-    <Component {...props} />
-  )
-};
+  render() {
+    const props = this.getFieldProps(undefined, {ensureValue: false});
+    const builderComponent = components.find(c => c.type === props.componentType);
+
+    if (builderComponent) {
+      return <builderComponent.formElement {...props} />
+    }
+
+    return <AutoField {...this.props} />;
+  }
+}
 
 export default {
   AutoForm,
