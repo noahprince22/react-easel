@@ -4,6 +4,9 @@ import ItemTypes from './ItemTypes'
 import SimpleSchema from 'simpl-schema';
 import ErrorField from './ErrorField';
 import AutoFields from './AutoFields';
+import {UnmountClosed} from 'react-collapse';
+
+import './Item.css';
 
 SimpleSchema.extendOptions(['uniforms']);
 
@@ -157,7 +160,12 @@ export default class Item extends Component {
             <i onClick={this.editElement} className="btn toggle-form fa fa-pencil"/>
             <i onClick={this.copyElement} className="btn copy-button fa fa-clone"/>
           </div> }
-          { editing &&
+          <UnmountClosed
+            isOpened={editing}
+            springConfig={{
+              stiffness: 210, damping: 23
+            }}
+          >
             <div className="form-elements">
               <AutoForm
                 AutoField={AutoField}
@@ -181,7 +189,7 @@ export default class Item extends Component {
                   return model;
                 }}
               >
-                <AutoFields autoField={AutoField} />
+                <AutoFields autoField={AutoField}/>
                 <ErrorField/>
                 <div style={{ textAlign: 'right' }}>
                   <button className="btn btn-link" onClick={() => this.setState({ editing: false })}>Cancel</button>
@@ -197,7 +205,7 @@ export default class Item extends Component {
                 </div>
               </AutoForm>
             </div>
-          }
+          </UnmountClosed>
           { !editing &&
             // Shouldn't have to pass in uniforms explicitly, but placeholder only works when I do this.
             <div className="form-element">

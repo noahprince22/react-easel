@@ -210,33 +210,36 @@ export default class FormBuilder extends Component {
 
     const leftContainer = connectComponentDropTarget(
       connectItemDropTarget(
+        cards.length === 0 ?
         <div style={styles.leftWrapper}>
-          <Form schema={this.getSchema()} model={{}}>
-            { cards.length === 0 &&
-              <div style={styles.emptyStateWrapper}>
-                <span style={styles.emptyState}>Drag a field from the right to this area</span>
-              </div>
-            }
-            {cards.map(card => (
-              <Item
-                card={card}
-                admin={this.getComponent(card.uniforms.componentType).admin}
-                preview={card.preview}
-                id={card.id}
-                key={card.id}
-                AutoField={this.props.AutoField}
-                AutoForm={Form}
-                moveItem={this.moveItem}
-                findItem={this.findItem}
-                removeItem={() => this.removeItem(card.id)}
-                updateItem={(newItem) => {
-                  this.setItem(card.id, newItem)
-                }}
-                createItem={this.createItem}
-              />
-            ))}
-          </Form>
-        </div>
+          <div style={styles.leftDragarea}>
+            <div style={styles.emptyStateWrapper}>
+              <span style={styles.emptyState}>Drag a field from the right to this area</span>
+            </div>
+          </div>
+        </div> :
+          <div style={styles.leftWrapper}>
+            <Form schema={this.getSchema()} model={{}}>
+              {cards.map(card => (
+                <Item
+                  card={card}
+                  admin={this.getComponent(card.uniforms.componentType).admin}
+                  preview={card.preview}
+                  id={card.id}
+                  key={card.id}
+                  AutoField={this.props.AutoField}
+                  AutoForm={Form}
+                  moveItem={this.moveItem}
+                  findItem={this.findItem}
+                  removeItem={() => this.removeItem(card.id)}
+                  updateItem={(newItem) => {
+                    this.setItem(card.id, newItem)
+                  }}
+                  createItem={this.createItem}
+                />
+              ))}
+            </Form>
+          </div>
       )
     );
 
@@ -264,9 +267,7 @@ export default class FormBuilder extends Component {
 
     return <div style={styles.parent}>
       <div style={styles.left}>
-        <div style={styles.leftDragarea}>
-          { leftContainer }
-        </div>
+        { leftContainer }
       </div>
       <div style={styles.right}>
         { rightContainer }
