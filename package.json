@@ -1,5 +1,5 @@
 {
-  "name": "react-uniform-builder",
+  "name": "react-easel",
   "version": "0.0.8",
   "description": "Widget to dynamically build forms using simple-schema and uniforms",
   "main": "lib/react-formbuilder.js",
@@ -8,6 +8,7 @@
     "release:minor": "npm-release minor",
     "release:major": "npm-release major",
     "start": "node server.js",
+    "build-demo": "BABEL_ENV=production NODE_ENV=production cross-env ./node_modules/.bin/webpack",
     "build": "cross-env BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.production.js",
     "prepublish": "npm run build",
     "lint": "eslint --cache --ignore-path .gitignore --format=node_modules/eslint-formatter-pretty . *.js",

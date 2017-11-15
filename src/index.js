@@ -16,7 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>React FormBuilder</h1>
+        <h1>React Easel</h1>
         <div style={{ marginBottom: '20px' }}>
           <Debounce time="500" handler="onSchemaChange">
             <FormBuilder

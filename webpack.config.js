@@ -54,9 +54,8 @@ module.exports = {
     './src/index'
   ],
   output: {
-    path: __dirname,
-    filename: 'bundle.js',
-    publicPath: '/static/'
+    path: path.join(__dirname, 'public'),
+    filename: 'bundle.js'
   },
   resolve: {
     extensions: ['.js']
