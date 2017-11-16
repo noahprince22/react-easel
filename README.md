@@ -1,4 +1,4 @@
-# React Uniform Builder
+# React Easel
 
 A react component to dynamically build reusable forms. [See the demo here](https://noahprince22.github.io/react-easel/public/)
 
