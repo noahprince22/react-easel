@@ -18,21 +18,21 @@ class CheckboxGroupField extends React.Component {
   render() {
     const props = this.props;
     return wrapField(props, (
-      this.props.options.map(item =>
+      this.props.options.map((item, index) =>
         <div
-          key={item.value}
+          key={index}
           className={classnames(
             props.inputClassName,
             'form-check',
             `checkbox${props.inline ? '-inline' : ''}` // bootstrap4 < alpha.6
           )}
         >
-          <label htmlFor={`${props.id}-${item}`} className="form-check-label">
+          <label htmlFor={`${props.id}-${item.value}`} className="form-check-label">
             <input
               checked={props.value.includes(item.value)}
               className="form-check-input"
               disabled={props.disabled}
-              id={`${props.id}-${item}`}
+              id={`${props.id}-${item.value}`}
               name={props.name}
               onChange={() => this.onCheck(item.value)}
               type="checkbox"
