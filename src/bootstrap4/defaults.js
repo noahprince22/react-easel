@@ -159,7 +159,7 @@ const components = [{
   type: 'Select',
   schema: {
     type: String,
-    defaultValue: 1,
+    defaultValue: '1',
     uniforms: {
       options: [{ label: 'one', value: '1' }]
     }
@@ -175,7 +175,6 @@ const components = [{
         type: Array,
         custom: function() {
           const seen = {};
-          console.log(this.field('options').value);
           this.field('options').value.forEach(option => {
             if (seen[option.value]) {
               throw new Error('Values must be distinct');
