@@ -1,6 +1,6 @@
 {
   "name": "react-easel",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Widget to dynamically build forms using simple-schema and uniforms",
   "main": "lib/react-formbuilder.js",
   "scripts": {
