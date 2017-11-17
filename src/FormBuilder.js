@@ -113,8 +113,8 @@ export default class FormBuilder extends Component {
     let id = 0;
     if (props.cards) {
       return props.cards.map(c => ({
-        id: (++id),
-        ...c
+        ...c,
+        id: (++id)
       }));
     }
 
