@@ -72,7 +72,7 @@ Components are defined as follows:
 | Argument | Type | Description|
 | -------- | ---- | ---------- |
 | `type`   | `string` | A unique identifier for the component. Ex: 'Text Field' |
-| `dataType` | `Javascript Primitive` | Corresponds to the `type` field for the object in [node-simple-schema](https://github.com/aldeed/node-simple-schema) |
+| `schema` | `object` | Corresponds to the [node-simple-schema](https://github.com/aldeed/node-simple-schema) definition. Should, at the very least, contain type |
 | `sidebar` | `object` | The definition for what will show in the sidebar|
 | `sidebar.text` | `string` | The text that shows up on the sidebar. Ex: 'Text Field'
 | `sidebar.icon` | `React Component` | The icon that shows up in the sidebar. Ex: `<i className="fa fa-pencil" />` |
@@ -190,7 +190,9 @@ class CustomAuto extends BaseField {
 
 const WYSIWYGComponent = {
   type: 'WYSIWYG Editor',
-  dataType: String,
+  schema: {
+    type: String
+  },
   sidebar: {
     icon: <i className="fa fa-file-text-o"/>,
     text: 'WYSIWYG Editor'
@@ -215,13 +217,15 @@ import LongTextField from 'uniforms-bootstrap4/LongTextField';
 
 const LongTextFieldComponent = {
                                  type: 'Textarea',
-                                 dataType: String,
+                                 schema: {
+                                   String,
+                                   uniforms: {
+                                     rows: 10                                     
+                                   }
+                                 },
                                  sidebar: {
                                    icon: <i className="fa fa-pencil-square-o" />,
                                    text: 'Textarea'
-                                 },
-                                 defaultProps: {
-                                   rows: 10
                                  },
                                  admin: {
                                    schema: new SimpleSchema({

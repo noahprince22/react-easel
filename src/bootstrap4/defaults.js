@@ -16,7 +16,9 @@ import SimpleSchema from 'simpl-schema';
 
 const components = [{
   type: 'Text Field',
-  dataType: String,
+  schema: {
+    type: String,
+  },
   sidebar: {
     icon: <i className="fa fa-i-cursor"/>,
     text: 'Text Field'
@@ -24,7 +26,9 @@ const components = [{
   formElement: TextField
 }, {
   type: 'Boolean',
-  dataType: Boolean,
+  schema: {
+    type: Boolean,
+  },
   sidebar: {
     icon: <i className="fa fa-check-square" />,
     text: 'Boolean'
@@ -32,9 +36,11 @@ const components = [{
   formElement: BooleanField
 }, {
   type: 'Date Field',
-  dataType: String,
-  defaultProps: {
-    type: 'date'
+  schema: {
+    type: String,
+    uniforms: {
+      type: 'date'
+    }
   },
   sidebar: {
     icon: <i className="fa fa-calendar"/>,
@@ -59,7 +65,9 @@ const components = [{
   formElement: DateField
 }, {
   type: 'Hidden Input',
-  dataType: String,
+  schema: {
+    type: String
+  },
   sidebar: {
     icon: <i className="fa fa-eye-slash" />,
     text: 'Hidden Input'
@@ -67,15 +75,17 @@ const components = [{
   formElement: HiddenField
 }, {
   type: 'Textarea',
-  dataType: String,
+  schema: {
+    type: String,
+    uniforms: {
+      rows: 10
+    },
+  },
   sidebar: {
     icon: <i className="fa fa-pencil-square-o" />,
     text: 'Textarea'
   },
   formElement: LongTextField,
-  defaultProps: {
-    rows: 10
-  },
   admin: {
     schema: new SimpleSchema({
       rows: {
@@ -85,7 +95,9 @@ const components = [{
   }
 }, {
   type: 'Number',
-  dataType: Number,
+  schema: {
+    type: Number
+  },
   formElement: NumberField,
   sidebar: {
     icon: <i className="fa fa-hashtag"/>,
@@ -109,15 +121,17 @@ const components = [{
   }
 }, {
   type: 'Radio Group',
-  dataType: String,
+  schema: {
+    type: String,
+    uniforms: {
+      options: [{ label: 'one', value: 1 }]
+    }
+  },
   sidebar: {
     icon: <i className="fa fa-circle-o" />,
     text: 'Radio Group'
   },
   formElement: RadioGroup,
-  defaultProps: {
-    options: [{ label: 'one', value: 1 }]
-  },
   admin: {
     schema: new SimpleSchema({
       options: {
@@ -143,16 +157,18 @@ const components = [{
   }
 }, {
   type: 'Select',
-  dataType: String,
+  schema: {
+    type: String,
+    defaultValue: 1,
+    uniforms: {
+      options: [{ label: 'one', value: '1' }]
+    }
+  },
   sidebar: {
     icon: <i className="fa fa-toggle-down" />,
     text: 'Select'
   },
   formElement: SelectField,
-  defaultProps: {
-    value: 1,
-    options: [{ label: 'one', value: '1' }]
-  },
   admin: {
     schema: new SimpleSchema({
       options: {
@@ -184,15 +200,17 @@ const components = [{
   }
 },  {
   type: 'Checkbox Group',
-  dataType: Array,
+  schema: {
+    type: Array,
+    uniforms: {
+      options: [{ label: 'one', value: 1 }]
+    }
+  },
   sidebar: {
     icon: <i className="fa fa-check-square-o" />,
     text: 'Checkbox Group'
   },
   formElement: CheckboxGroup,
-  defaultProps: {
-    options: [{ label: 'one', value: 1 }]
-  },
   admin: {
     schema: new SimpleSchema({
       options: {

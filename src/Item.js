@@ -122,9 +122,12 @@ export default class Item extends Component {
         type: String,
         optional: true
       },
-      value: {
+      defaultValue: {
         type: String,
-        optional: true
+        optional: true,
+        uniforms: {
+          label: 'Value'
+        }
       }
     });
 
@@ -176,11 +179,12 @@ export default class Item extends Component {
                 modelTransform={(mode, model) => {
                   // This model will be submitted.
                   if (mode === 'submit') {
-                    const { name, optional, ...uniforms } = model;
+                    const { name, optional, defaultValue, ...uniforms } = model;
                     return {
                       name,
                       type,
                       optional,
+                      defaultValue,
                       uniforms
                     };
                   }

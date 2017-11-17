@@ -6,15 +6,15 @@ import ItemTypes from './ItemTypes'
 const create = (props, preview = false) => {
   const item = props.createItem({
     name: props.formComponent.sidebar.text + parseInt(Math.random() * 10000, 10),
-    type: props.formComponent.dataType,
+    ...props.formComponent.schema,
     optional: true,
     uniforms: {
+      ...(props.formComponent.schema || {}).uniforms,
       componentType: props.formComponent.type,
       label: props.formComponent.sidebar.text,
       placeholder: '', // Uniforms has incredibly weird logic about when to display placeholders. And you can't set it
       // not to fallback to label. So if placeholder isn't undefined, the logic works the way I want it to --
       // that is, no placeholder unless specified in the schema.
-      ...props.formComponent.defaultProps
     },
     preview
   });
