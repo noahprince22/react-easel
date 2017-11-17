@@ -173,6 +173,17 @@ const components = [{
     schema: new SimpleSchema({
       options: {
         type: Array,
+        custom: function() {
+          const seen = {};
+          console.log(this.field('options').value);
+          this.field('options').value.forEach(option => {
+            if (seen[option.value]) {
+              throw new Error('Values must be distinct');
+            }
+
+            seen[option.value] = true;
+          });
+        },
         minCount: 1,
         uniforms: {
           label: 'Options',
